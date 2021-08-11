@@ -2,7 +2,7 @@ import React from "react";
 import "./Posts.css";
 import PostCard from "../PostCard/PostCard";
 
-const Posts = ({ posts }) => {
+const Posts = ({ posts = [] }) => {
   return (
     <div className="posts">
       {posts.map((post) => (
