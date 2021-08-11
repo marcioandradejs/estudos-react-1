@@ -12,9 +12,12 @@ const Posts = ({ posts = [] }) => {
   );
 };
 
-Posts.defaultProps = {
-  posts: [],
-};
+// A propriedade padrão já foi passada direto no componente via destructuring
+// Posts = ({ posts = [] })
+
+// Posts.defaultProps = {
+//   posts: [],
+// };
 
 Posts.propTypes = {
   posts: P.arrayOf(

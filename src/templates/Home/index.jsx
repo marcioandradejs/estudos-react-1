@@ -30,7 +30,6 @@ export const Home = () => {
   }, []);
 
   useEffect(() => {
-    console.log('oi');
     handleLoadPosts(0, postsPerPage);
   }, [handleLoadPosts, postsPerPage]);
 
