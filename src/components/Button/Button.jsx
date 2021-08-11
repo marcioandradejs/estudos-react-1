@@ -1,6 +1,6 @@
 import "./Button.css";
 
-export const Button = ({ text, onClick, disabled }) => (
+export const Button = ({ onClick, disabled, text }) => (
   <button className="button" onClick={onClick} disabled={disabled}>
     {text}
   </button>
