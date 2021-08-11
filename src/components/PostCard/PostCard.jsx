@@ -1,5 +1,5 @@
-import React from "react";
-import "./PostCard.css";
+import P from 'prop-types';
+import './PostCard.css';
 
 export const PostCard = ({ cover, title, body }) => (
   <div className="post">
@@ -10,5 +10,11 @@ export const PostCard = ({ cover, title, body }) => (
     </div>
   </div>
 );
+
+PostCard.propTypes = {
+  cover: P.string.isRequired,
+  title: P.string.isRequired,
+  body: P.string.isRequired,
+};
 
 export default PostCard;

@@ -1,5 +1,5 @@
-import React from "react";
-import "./styles.css";
+import P from 'prop-types';
+import './styles.css';
 
 const TextInput = ({ searchValue, handleChange }) => {
   return (
@@ -11,6 +11,11 @@ const TextInput = ({ searchValue, handleChange }) => {
       placeholder="type your search"
     />
   );
+};
+
+TextInput.propTypes = {
+  searchValue: P.string.isRequired,
+  handleChange: P.func.isRequired,
 };
 
 export default TextInput;

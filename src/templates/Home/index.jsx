@@ -1,22 +1,22 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback } from 'react';
 
-import "./styles.css";
+import './styles.css';
 
-import Posts from "../../components/Posts/Posts";
-import { loadPosts } from "../../functions/load-posts";
-import { Button } from "../../components/Button/Button";
-import TextInput from "../../components/TextInput/TextInput";
+import Posts from '../../components/Posts/Posts';
+import { loadPosts } from '../../functions/load-posts';
+import { Button } from '../../components/Button/Button';
+import TextInput from '../../components/TextInput/TextInput';
 
 export const Home = () => {
   const [posts, setPosts] = useState([]);
   const [allPosts, setAllPosts] = useState([]);
   const [page, setPage] = useState(0);
   const [postsPerPage] = useState(10);
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState('');
 
   const noMorePosts = page + postsPerPage >= allPosts.length;
 
-  const filteredPosts = !!searchValue
+  const filteredPosts = searchValue
     ? allPosts.filter((post) => {
         return post.title.toLowerCase().includes(searchValue.toLowerCase());
       })
@@ -30,7 +30,7 @@ export const Home = () => {
   }, []);
 
   useEffect(() => {
-    console.log("oi");
+    console.log('oi');
     handleLoadPosts(0, postsPerPage);
   }, [handleLoadPosts, postsPerPage]);
 
@@ -54,18 +54,10 @@ export const Home = () => {
         <TextInput searchValue={searchValue} handleChange={handleChange} />
         {!!searchValue && <h1>searchValue: {searchValue}</h1>}
       </div>
-      {filteredPosts.length > 0 ? (
-        <Posts posts={filteredPosts} />
-      ) : (
-        <p>Não existem posts =(</p>
-      )}
+      {filteredPosts.length > 0 ? <Posts posts={filteredPosts} /> : <p>Não existem posts =(</p>}
       {!searchValue && (
         <div className="button-container">
-          <Button
-            disabled={noMorePosts}
-            text="Load more posts"
-            onClick={loadMorePosts}
-          />
+          <Button disabled={noMorePosts} text="Load more posts" onClick={loadMorePosts} />
         </div>
       )}
     </section>
